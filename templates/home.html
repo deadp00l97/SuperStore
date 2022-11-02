@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        background-image: url('/static/images/back.jpg');
+        background-repeat: no-repeat;
+        background-position: right;
+        position: relative;
+        background-size: cover;
+
+      }
+
+      /* Float four columns side by side */
+      .column {
+        float: left;
+        width: 25%;
+        padding: 0 10px;
+      }
+
+      /* Remove extra left and right margins, due to padding */
+      .row {
+        margin: 250px 40px 100px 40px;
+      }
+
+      /* Clear floats after the columns */
+      .row:after {
+        content: "";
+        display: table;
+        clear: both;
+      }
+
+      /* Responsive columns */
+      @media screen and (max-width: 600px) {
+        .column {
+          width: 100%;
+          display: block;
+          margin-bottom: 20px;
+        }
+      }
+
+      /* Style the counter cards */
+      .card {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        padding: 16px;
+        text-align: center;
+        background-color: coral;
+        color: #f1f1f1;
+        border-radius: 30px;
+      }
+
+      .header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: black;
+        width: 100%;
+        height: 70px;
+      }
+      .footer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        background-color: black;
+        width: 100%;
+        height: 70px;
+      }
+    </style>
+</head>
+<body>
+
+  <div class="header"></div>
+  <center>
+
+
+  <div class="row">
+    <div class="column">
+      <div class="card">
+        <a href=sales_target><h3>
+            <font color="#ffebcd">Regression</font></h3></a>
+        <p>Some text</p>
+        <p>Some text</p>
+      </div>
+    </div>
+
+    <div class="column">
+      <div class="card">
+        <a href=discount><h3>
+        <font color="#ffebcd">Classification</font></h3></a>
+        <p>Some text</p>
+        <p>Some text</p>
+      </div>
+    </div>
+
+    <div class="column">
+      <div class="card">
+           <a href=product><h3>
+         <font color="#ffebcd">Association</font></h3></a>
+        <p>Some text</p>
+        <p>Some text</p>
+      </div>
+    </div>
+
+    <div class="column">
+      <div class="card">
+           <a href=loyal><h3>
+         <font color="#ffebcd">Clustering</font></h3></a>
+        <p>Some text</p>
+        <p>Some text</p>
+      </div>
+    </div>
+    <div class="column">
+      <div class="card">
+           <a href=analyze><h3>
+         <font color="#ffebcd">Analysis of Data Set</font></h3></a>
+        <p>Some text</p>
+        <p>Some text</p>
+      </div>
+    </div>
+  </div>
+  </center>
+  <div class="footer"></div>
+</body>
+</html>

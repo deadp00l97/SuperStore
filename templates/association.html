@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Association</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+.limits {
+          margin: 150px 500px 0 40px;
+      }
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        background-image: url('/static/images/c.jpeg');
+        background-repeat: no-repeat;
+        position: relative;
+        background-size: cover;
+
+      }
+
+      /* Float four columns side by side */
+      .column {
+        float: left;
+        width: 25%;
+        padding: 0 10px;
+      }
+
+      /* Remove extra left and right margins, due to padding */
+      .row {
+        margin: 250px 40px 100px 40px;
+      }
+
+      /* Clear floats after the columns */
+      .row:after {
+        content: "";
+        display: table;
+        clear: both;
+      }
+
+      /* Responsive columns */
+      @media screen and (max-width: 600px) {
+        .column {
+          width: 100%;
+          display: block;
+          margin-bottom: 20px;
+        }
+      }
+
+       .crd {
+          padding: 20px;
+          background-color: black;
+        opacity: 0.6;
+      }
+      /* Style the counter cards */
+      .card {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        padding: 16px;
+        text-align: center;
+        background-color: coral;
+        color: #f1f1f1;
+        border-radius: 30px;
+      }
+
+      h1 {
+        margin-bottom: 40px;
+      }
+
+      .header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: black;
+        width: 100%;
+        height: 70px;
+      }
+      .footer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        background-color: black;
+        width: 100%;
+        height: 70px;
+      }
+      #customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 35%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color: #04AA6D;
+  color: white;
+}
+
+    </style>
+</head>
+<body>
+  <div class="header"></div>
+
+  <center>
+      <div class="limits">
+        <div class="hed"><h1><b>Recommended Products</b></h1></div><div class="crd">
+        <hr>
+        <!-- Main Input For Receiving Query to our ML -->
+        <form action="{{ url_for('product_recommend')}}"method="post">
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                  <input type="text" name="Product" class="form-control" placeholder="Product" required="required" />
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Predict</button>
+            <button type="button" class="btn btn-secondary" onclick="history.back()">Back</button>
+        </form></div>
+      {% if association %}
+      <table id="customers">
+          <thead>
+            <tr>
+                <th>Product ID</th>
+                <th>Product Name</th>
+            </tr>
+          </thead>
+          <tbody>
+          {% for item in association %}
+            <tr>
+                <td>{{ item[0] }}</td>
+                <td>{{ item[1] }}</td>
+            </tr>
+          {% endfor %}
+          </tbody>
+      </table>
+      {% endif %}
+  </center>
+  <div class="footer"></div>
+</body>
+</html>
